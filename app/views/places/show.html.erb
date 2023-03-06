@@ -6,16 +6,17 @@
     <div class="col-md-3 col-sm-6">
       <h4>
         <%# find user who created post %>
-        <% user = User.find_by({ "id" => post["user_id"] }) %>
+        <% your_posts = Post.find_by({ "user_id" => session["user_id"] }) %>
+        
         <%# handle any potential bad data where the post is missing a user %>
-        <% if user %>
-          <%= user["first_name"] %>
-        <% else %>
-          anonymous
-        <% end %>
+        
+        Session User Id <%= session["user_id"] %>
+        <p>Post ID <%= post["place_id"] %> </p>
+        <p>Place ID <%= @place["id"] %> </p>
       </h4>
-      <img src="<%= post["image"] %>" class="img-fluid">
-      <p><%= post["body"] %></p>
+
+      <p><%= post["title"] %></p>
+
     </div>
   <% end %>
 </div>
