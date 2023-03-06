@@ -1,34 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tacostagram Final</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
     <link rel="stylesheet" href="/stylesheets/application.css">
   </head>
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">ENTR-451!</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/posts">Tacostagram</a>
-          </li>
+
         </ul>
         
         <ul class="navbar-nav mb-2 mb-lg-0">
+        <a href="/" class="btn btn-default">Home | </a>
           <% if @current_user %>
-            Logged in as: <%= @current_user["first_name"] %> |
+            Logged in as: <%= @current_user["username"] %> |
             <a href="/logout" class="btn btn-default">Logout</a>
           <% else %>
             <a href="/login" class="btn btn-default">Login</a> |
@@ -43,12 +31,7 @@
     <div>
       <%= flash["notice"] %>
     </div>
-    <div>
-      <a href="/">Home</a>
-      <a href="/logout">Logout</a>
-      <a href="/login">Login</a>
-      <a href="/users/new">Signup</a>
-    </div>
+
 
     <%= yield %>
   </body>
