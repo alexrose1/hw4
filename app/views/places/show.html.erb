@@ -10,21 +10,25 @@
         
         <%# handle any potential bad data where the post is missing a user %>
         
-        Session User Id <%= session["user_id"] %>
-        <p>Post ID <%= post["place_id"] %> </p>
-        <p>Place ID <%= @place["id"] %> </p>
+        <%= post["title"] %>
       </h4>
 
-      <p><%= post["title"] %></p>
+      <p>Posted On: <%= post["posted_on"] %> </p>
 
+
+            <% if post.uploaded_image.attached? %>
+              <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
+            <% else %>
+              <img src="<%= post["image"] %>" class="img-fluid">
+            <% end %>
+
+            
     </div>
   <% end %>
-</div>
 
-<p>
+  <p>
   <a href="/posts/new?place_id=<%= @place["id"] %>">New Post</a>
 </p>
+</div>
 
-<p>
-  <a href="/places">Back to All Places</a>
-</p>
+
