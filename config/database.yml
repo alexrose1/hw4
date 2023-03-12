@@ -21,8 +21,8 @@ test:
   database: db/test.sqlite3
 
 production:
-<<: *default
+<<: *default 
 adapter: postgresql
-  database: hw4-alexrose_production
-  username: hw4-alexrose
-  password: <%= ENV["HW4-ALEXROSE_DATABASE_PASSWORD"] %>
+database: hw4-alexrose_production
+username: hw4-alexrose
+password: <%= ENV["HW4-ALEXROSE_DATABASE_PASSWORD"] %>
